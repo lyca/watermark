@@ -1,0 +1,23 @@
+apply plugin: 'war'
+apply plugin: 'eclipse'
+
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Watermark', 'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile 'org.glassfish.main.extras:glassfish-embedded-all:3.1.2'
+
+    testCompile 'junit:junit:4.+'
+    testCompile 'org.jboss.arquillian.junit:arquillian-junit-container:1.1.7.Final'
+    
+    testRuntime 'org.jboss.arquillian.container:arquillian-glassfish-embedded-3.1:1.0.0.CR3'
+}
